@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Playfair Display", serif;
+  --font-body: "Inter", sans-serif;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #c9a66b33 transparent;
+}
+
+html {
+  background: #0e0c0a;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Reduced motion: respect the user's preference everywhere */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Film grain overlay, sits above every scene */
+.film-grain {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Soft vignette used behind scene imagery */
+.scene-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    120% 90% at 50% 50%,
+    transparent 40%,
+    rgba(14, 12, 10, 0.55) 100%
+  );
+}
+
+.bloom {
+  box-shadow: 0 0 160px 40px rgba(201, 166, 107, 0.08);
+}
+
+/* Focus visibility, kept even inside a cinematic design */
+:focus-visible {
+  outline: 2px solid #c9a66b;
+  outline-offset: 3px;
+}
+
+/* Utility: elegant divider rule used sparingly between scenes */
+.rule-thread {
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    #c9a66b55 20%,
+    #c9a66b55 80%,
+    transparent
+  );
+}
