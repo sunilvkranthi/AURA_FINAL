@@ -14,7 +14,13 @@ const alignment: Record<SceneType["align"], string> = {
   center: "md:justify-center md:text-center",
 };
 
-export default function Scene({ scene, index }: { scene: SceneType; index: number }) {
+export default function Scene({
+  scene,
+  index,
+}: {
+  scene: SceneType;
+  index: number;
+}) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const imageWrapRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
@@ -35,7 +41,7 @@ export default function Scene({ scene, index }: { scene: SceneType; index: numbe
             end: "bottom top",
             scrub: 1.2,
           },
-        }
+        },
       );
 
       // text rises in gently, narrative purpose only
@@ -52,7 +58,7 @@ export default function Scene({ scene, index }: { scene: SceneType; index: numbe
             start: "top 65%",
             toggleActions: "play none none reverse",
           },
-        }
+        },
       );
     }, sectionRef);
 
@@ -80,7 +86,10 @@ export default function Scene({ scene, index }: { scene: SceneType; index: numbe
       <div
         className={`relative z-10 flex w-full px-6 md:px-16 ${alignment[scene.align]}`}
       >
-        <div ref={textRef} className="max-w-xl">
+        <div
+          ref={textRef}
+          className="max-w-xl rounded-md px-6 py-6 md:px-8 md:py-8 bg-ink/55 backdrop-blur-[2px] shadow-[0_20px_60px_rgba(0,0,0,0.35)]"
+        >
           <p className="text-[11px] tracking-widest2 uppercase text-gold/80 mb-4 font-body">
             {scene.eyebrow}
           </p>
@@ -90,7 +99,7 @@ export default function Scene({ scene, index }: { scene: SceneType; index: numbe
           {scene.body.map((p, i) => (
             <p
               key={i}
-              className="text-cream/80 text-base md:text-lg leading-relaxed font-light mb-3"
+              className="text-cream/85 text-base md:text-lg leading-relaxed font-light mb-3"
             >
               {p}
             </p>
