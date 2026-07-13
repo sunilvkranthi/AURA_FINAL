@@ -86,20 +86,17 @@ export default function Scene({
       <div
         className={`relative z-10 flex w-full px-6 md:px-16 ${alignment[scene.align]}`}
       >
-        <div
-          ref={textRef}
-          className="max-w-xl rounded-md px-6 py-6 md:px-8 md:py-8 bg-ink/55 backdrop-blur-[2px] shadow-[0_20px_60px_rgba(0,0,0,0.35)]"
-        >
-          <p className="text-[11px] tracking-widest2 uppercase text-gold/80 mb-4 font-body">
+        <div ref={textRef} className="max-w-xl">
+          <p className="text-[11px] tracking-widest2 uppercase text-black mb-4 font-body">
             {scene.eyebrow}
           </p>
-          <h2 className="font-display text-3xl md:text-5xl leading-tight text-cream mb-6">
+          <h2 className="font-display text-3xl md:text-5xl leading-tight text-black mb-6">
             {scene.title}
           </h2>
           {scene.body.map((p, i) => (
             <p
               key={i}
-              className="text-cream/85 text-base md:text-lg leading-relaxed font-light mb-3"
+              className="text-black text-base md:text-lg leading-relaxed font-light mb-3"
             >
               {p}
             </p>
